@@ -1,6 +1,6 @@
 ## This is a pair of functions that cache the inverse of a matrix
 
-##makeCacheMatrix creates a special "matrix" object that can cache its inverse in four steps :
+## makeCacheMatrix creates a special "matrix" object that can cache its inverse in four steps :
 ## 1. set the value of the matrix
 ## 2. get the value of the matrix
 ## 3. set the value of the inverse of the matrix
@@ -33,21 +33,3 @@ cacheSolve <- function(x, ...) {
         x$setinv(inv)
         inv
 }
-
-# b <- makeCacheMatrix()
-# b$set(matrix(c(1,0,5,2,1,6,3,4,0),3,3))
-# b$get
-# cacheSolve(b)
-# cacheSolve(b)
-# matrix(c(1,0,5,2,1,6,3,4,0),3,3) %*% (cacheSolve(b))
-
-amatrix = makeCacheMatrix(matrix(c(1,2,3,4), nrow=2, ncol=2))
-amatrix$get()         # Returns original matrix
-cacheSolve(amatrix)   # Computes, caches, and returns    matrix inverse
-amatrix$getinv()  # Returns matrix inverse
-cacheSolve(amatrix)   # Returns cached matrix inverse using previously computed matrix inverse
-
-amatrix$set(matrix(c(0,5,99,66), nrow=2, ncol=2)) # Modify existing matrix
-cacheSolve(amatrix)   # Computes, caches, and returns new matrix inverse
-amatrix$get()         # Returns matrix
-amatrix$getinv()  # Returns matrix inverse
